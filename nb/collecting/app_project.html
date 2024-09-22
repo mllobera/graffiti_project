@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project Application &#8212; Graffiti Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/collecting/app_project';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Collecting Data" href="collecting.html" />
+    <link rel="prev" title="Graffiti Project" href="../../introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GraffitiProject.png" class="logo__image only-light" alt="Graffiti Project - Home"/>
+    <script>document.write(`<img src="../../_static/GraffitiProject.png" class="logo__image only-dark" alt="Graffiti Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Graffiti Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Collecting Graffiti Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Project Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collecting.html">Collecting Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preliminaries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/notebook_basics.html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/file_structure_basics.html">File structure basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/markdown.html">Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/dictionary.html">Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/flow.html">Comparisons and Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">Modules and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing (Pandas)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pandas/introduction.html">Pandas Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/cleaning.html">Reading and Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/accessing.html">Accessing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/operations.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/grouping.html">Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/joining.html">Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/transforming.html">Transforming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/chaining.html">Chaining</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/pandas_plot.html">Pandas Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_i.html">GeoSpatial I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_ii.html">GeoSpatial II</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/simple_stats.html">Simple Statistics</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workbooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case1.html">Case 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case2.html">Case 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnb/collecting/app_project.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/collecting/app_project.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Project Application</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-epicollect-and-joining-the-graffiti-project">Installing Epicollect and Joining the Graffiti Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-making-sure-you-are-registered-for-uw-google-suite">Step 0 - Making sure you are registered for UW Google Suite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-installing-epicollect5">Step 1 - Installing Epicollect5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-logging-into-epicollect5-with-your-uw-credentials">Step 2 - Logging into Epicollect5 with your UW credentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-the-graffiti-project-to-epicollect5">Step 3 - Adding the Graffiti Project to Epicollect5</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="project-application">
+<h1>Project Application<a class="headerlink" href="#project-application" title="Link to this heading">#</a></h1>
+<p><em>By Alec Iacobucci</em></p>
+<section id="installing-epicollect-and-joining-the-graffiti-project">
+<h2>Installing Epicollect and Joining the Graffiti Project<a class="headerlink" href="#installing-epicollect-and-joining-the-graffiti-project" title="Link to this heading">#</a></h2>
+<p>This guide will take you through the steps necessary to collect data for the graffiti project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is how all of your weekly homework assignments will be submitted, so it is of the utmost importance that you make sure you are registered and signed into the application.</p>
+</div>
+<p>Here are the steps:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Activate Google Suite</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Download and install Epicollect5</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Login to Epicollect5 using your UW netid</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Add the Graffiti Project to your app</p></li>
+</ul>
+</section>
+<section id="step-0-making-sure-you-are-registered-for-uw-google-suite">
+<h2>Step 0 - Making sure you are registered for UW Google Suite<a class="headerlink" href="#step-0-making-sure-you-are-registered-for-uw-google-suite" title="Link to this heading">#</a></h2>
+<p>If you are new to UW or have not had to activate your GSuite for other reasons, you need to do that now!</p>
+<p>To activate your UW Google account, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://uwnetid.washington.edu/manage/?google">Manage UW Google</a> page to activate the service and set your UW Google password. Once activated, your Google login is <a class="reference external" href="mailto:your_uwnetid&#37;&#52;&#48;uw&#46;edu">your_uwnetid<span>&#64;</span>uw<span>&#46;</span>edu</a> (where your_uwnetid is your actual UW NetID).</p></li>
+<li><p>If you want to forward your email to UW Gmail, use the <a class="reference external" href="https://uwnetid.washington.edu/manage/?forward">UW NetID manage page</a> and select “Forward to UW Google”. If you want to use Google without using Google’s email service, you can skip this step. Note to UW Medicine workforce members: You are prohibited from forwarding email to UW Google, as it is not HIPAA compatible. For more information on this policy, please contact <a class="reference external" href="mailto:comply&#37;&#52;&#48;uw&#46;edu">comply<span>&#64;</span>uw<span>&#46;</span>edu</a></p></li>
+</ol>
+</section>
+<section id="step-1-installing-epicollect5">
+<h2>Step 1 - Installing Epicollect5<a class="headerlink" href="#step-1-installing-epicollect5" title="Link to this heading">#</a></h2>
+<p>Epicollect5 is available for free on both Apple and Android devices via the App Store and Google Play Store. Search for it, download it and install it.</p>
+<a class="reference internal image-reference" href="../../_images/IMG_3703.jpg"><img alt="epicollect" class="align-center" src="../../_images/IMG_3703.jpg" style="height: 350px;" /></a>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Activate Google Suite</p></li>
+</ul>
+</section>
+<section id="step-2-logging-into-epicollect5-with-your-uw-credentials">
+<h2>Step 2 - Logging into Epicollect5 with your UW credentials<a class="headerlink" href="#step-2-logging-into-epicollect5-with-your-uw-credentials" title="Link to this heading">#</a></h2>
+<p>When opening Epicollect5 for the first time you should see something like this:<a class="reference internal" href="#fn1"><span class="xref myst"><sup id="fn1-back">1</sup></span></a>.</p>
+<a class="reference internal image-reference" href="../../_images/IMG_1399.jpg"><img alt="../../_images/IMG_1399.jpg" class="align-center" src="../../_images/IMG_1399.jpg" style="height: 350px;" /></a>
+<p>On the left side of the screen, tap the hamburger button to open the menu</p>
+<a class="reference internal image-reference" href="../../_images/IMG_1400.jpg"><img alt="../../_images/IMG_1400.jpg" class="align-center" src="../../_images/IMG_1400.jpg" style="height: 100px;" /></a>
+<p>Select <strong>login</strong></p>
+<a class="reference internal image-reference" href="../../_images/IMG_1401.jpg"><img alt="../../_images/IMG_1401.jpg" class="align-center" src="../../_images/IMG_1401.jpg" style="height: 350px;" /></a>
+<p>Select <strong>Sign in with Google</strong></p>
+<a class="reference internal image-reference" href="../../_images/IMG_1402.jpg"><img alt="../../_images/IMG_1402.jpg" class="align-center" src="../../_images/IMG_1402.jpg" style="height: 350px;" /></a>
+<p>Select <strong>Continue</strong></p>
+<a class="reference internal image-reference" href="../../_images/IMG_1403.jpg"><img alt="../../_images/IMG_1403.jpg" class="align-center" src="../../_images/IMG_1403.jpg" style="height: 350px;" /></a>
+<p>Using your UW netid and password, log in to Epicollect5</p>
+<a class="reference internal image-reference" href="../../_images/IMG_1404.png"><img alt="../../_images/IMG_1404.png" class="align-center" src="../../_images/IMG_1404.png" style="height: 350px;" /></a>
+<p>You should now see your name, welcoming you to the app</p>
+<a class="reference internal image-reference" href="../../_images/IMG_1405.png"><img alt="../../_images/IMG_1405.png" src="../../_images/IMG_1405.png" style="height: 350px;" /></a>
+<p><a class="reference internal" href="#fn1-back"><span class="xref myst"><sup id="fn1">1</sup></span></a> I will be using the Apple version for these screenshots, but it should be almost identical for Android/Google devices. Ask the TA if there are any difficulties</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Login to Epicollect5 using your UW netid</p></li>
+</ul>
+</section>
+<section id="step-3-adding-the-graffiti-project-to-epicollect5">
+<h2>Step 3 - Adding the Graffiti Project to Epicollect5<a class="headerlink" href="#step-3-adding-the-graffiti-project-to-epicollect5" title="Link to this heading">#</a></h2>
+<p>Click on Add Project at the top right of your screen</p>
+<a class="reference internal image-reference" href="../../_images/IMG_1406.jpg"><img alt="../../_images/IMG_1406.jpg" class="align-center" src="../../_images/IMG_1406.jpg" style="height: 75px;" /></a>
+<p>Type in Graffiti Project in the search bar- your UW netid should already be registered from the course roster: if you are unable to successfully add this project please let your TA or Professor know <strong>ASAP</strong></p>
+<a class="reference internal image-reference" href="../../_images/IMG_1407.png"><img alt="../../_images/IMG_1407.png" class="align-center" src="../../_images/IMG_1407.png" style="height: 350px;" /></a>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Add the Graffiti Project to your app</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb\collecting"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Graffiti Project</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="collecting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Collecting Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-epicollect-and-joining-the-graffiti-project">Installing Epicollect and Joining the Graffiti Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-0-making-sure-you-are-registered-for-uw-google-suite">Step 0 - Making sure you are registered for UW Google Suite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-installing-epicollect5">Step 1 - Installing Epicollect5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-logging-into-epicollect5-with-your-uw-credentials">Step 2 - Logging into Epicollect5 with your UW credentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-the-graffiti-project-to-epicollect5">Step 3 - Adding the Graffiti Project to Epicollect5</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcos Llobera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1954 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pandas Introduction &#8212; Graffiti Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/pandas/introduction';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reading and Cleaning Data" href="cleaning.html" />
+    <link rel="prev" title="Documentation" href="../python/documentation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GraffitiProject.png" class="logo__image only-light" alt="Graffiti Project - Home"/>
+    <script>document.write(`<img src="../../_static/GraffitiProject.png" class="logo__image only-dark" alt="Graffiti Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Graffiti Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Collecting Graffiti Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../collecting/app_project.html">Project Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collecting/collecting.html">Collecting Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preliminaries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/notebook_basics.html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/file_structure_basics.html">File structure basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/markdown.html">Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/dictionary.html">Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/flow.html">Comparisons and Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">Modules and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing (Pandas)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning.html">Reading and Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing.html">Accessing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joining.html">Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforming.html">Transforming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaining.html">Chaining</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/pandas_plot.html">Pandas Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_i.html">GeoSpatial I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_ii.html">GeoSpatial II</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/simple_stats.html">Simple Statistics</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workbooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case1.html">Case 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case2.html">Case 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnb/pandas/introduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/pandas/introduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">Pandas series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-index">Reset Index</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">Pandas DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-dataframe">Anatomy of a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parts">Parts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-series">Create a New Column/Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-a-dataframe">Sorting a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-a-column-series">Deleting a column/series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-a-column-s">Renaming a Column/s</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-introduction">
+<h1>Pandas Introduction<a class="headerlink" href="#pandas-introduction" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> is probably the module/package with which we are going to interact the most. It is specifically defined to read, transform, query data in a table format.</p>
+<p>Pandas is built on top of the <a class="reference internal" href="../extra/numpy.html"><span class="std std-doc">Numpy</span></a>, the main numerical package used in Python, so you might benefit from being familiar with this package.</p>
+<p>The two main components (=data structures) in Pandas are the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>(basically a table), and the<code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is made of several  <code class="docutils literal notranslate"><span class="pre">Series</span></code> that share a common index/es .</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Series</span></code> refers to one of the columns in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (though it can also refer to a row). A <code class="docutils literal notranslate"><span class="pre">series</span></code> has also an index/es.</p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Beware that often <code class="docutils literal notranslate"><span class="pre">Series</span></code> or a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, have functions with the same name.</p>
+</div>
+<p>There are many different ways to generate <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> from scratch. We will consider a few here but most often you will be reading data from a file (like <em>Excel</em> or some <em>text-delimited</em> file) into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> directly.</p>
+<p>First things first, we need to import the Pandas package. We will use the commonly used abbreviation <code class="docutils literal notranslate"><span class="pre">pd</span></code> to import the package</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pandas-series">
+<h2>Pandas series<a class="headerlink" href="#pandas-series" title="Link to this heading">#</a></h2>
+<p>A Pandas series is similar to a list with an index, used to refer to each entry, attached to it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a series using wins</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">])</span>
+<span class="n">win</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    26
+1    25
+2    19
+3    26
+4    22
+5    21
+6    28
+7    23
+8    22
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Retrieve the index</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve the index of series</span>
+<span class="n">win</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=9, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas has different types of <a class="reference external" href="https://www.programiz.com/python-programming/pandas/index">indexes</a>. By default, the index is an integer numerical range type.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">.value</span></code> to return a numpy array with all the values in the Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># return only the values (as a numpy array)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([26, 25, 19, 26, 22, 21, 28, 23, 22])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can specify both the data and the index when creating a Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a series using as data wins and as index years</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">],</span>
+                <span class="n">index</span><span class="o">=</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">])</span>
+<span class="n">win</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020    26
+2020    25
+2020    19
+2019    26
+2019    22
+2019    21
+2018    28
+2018    23
+2018    22
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve index</span>
+<span class="n">win</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([2020, 2020, 2020, 2019, 2019, 2019, 2018, 2018, 2018], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, we are indexing the number of wins by the year these occured. So, if you wanted to retrieve all of the wins that happened in 2020, you can type the following .</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve wins in 2020</span>
+<span class="n">win</span><span class="p">[</span><span class="mi">2020</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020    26
+2020    25
+2020    19
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reset-index">
+<h3>Reset Index<a class="headerlink" href="#reset-index" title="Link to this heading">#</a></h3>
+<p>It is always possible to reset an index, i.e. this creates a new series with the old index and inserts a new default index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reset index</span>
+<span class="n">win</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2019</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2018</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2018</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2018</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="pandas-dataframe">
+<h2>Pandas DataFrame<a class="headerlink" href="#pandas-dataframe" title="Link to this heading">#</a></h2>
+<p>The easiest way to generate a Pandas DataFrame is using a Python <a class="reference internal" href="../python/dictionary.html"><span class="std std-doc">Dictionary</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;team&#39;</span>  <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;RealMadrid&#39;</span><span class="p">,</span><span class="s1">&#39;FCBarcelona&#39;</span><span class="p">,</span> <span class="s1">&#39;Sevilla&#39;</span><span class="p">,</span> <span class="s1">&#39;FCBarcelona&#39;</span><span class="p">,</span><span class="s1">&#39;AtleticoMadrid&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;RealMadrid&#39;</span><span class="p">,</span> <span class="s1">&#39;FCBarcelona&#39;</span><span class="p">,</span><span class="s1">&#39;AtleticoMadrid&#39;</span><span class="p">,</span> <span class="s1">&#39;RealMadrid&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;year&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">],</span>
+                          <span class="s1">&#39;wins&#39;</span>  <span class="p">:</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">22</span><span class="p">],</span>
+                          <span class="s1">&#39;draws&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+                          <span class="s1">&#39;losses&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="anatomy-of-a-dataframe">
+<h3>Anatomy of a DataFrame<a class="headerlink" href="#anatomy-of-a-dataframe" title="Link to this heading">#</a></h3>
+<p>The following diagram identifies the name parts of a Pandas DataFrame:</p>
+<p><img alt="Anatomy" src="../../_images/anatomy_dataframe.png" /></p>
+</section>
+<section id="parts">
+<h3>Parts<a class="headerlink" href="#parts" title="Link to this heading">#</a></h3>
+<p>Let’s explore some of the parts of the DataFrame we created above. Let’s recover the names of the columns,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the columns of the DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;team&#39;, &#39;year&#39;, &#39;wins&#39;, &#39;draws&#39;, &#39;losses&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the index,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the index of the DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=9, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>What about the values?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the only the values (as numpy array of arrays)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;RealMadrid&#39;, 2020, 26, 3, 3],
+       [&#39;FCBarcelona&#39;, 2020, 25, 6, 6],
+       [&#39;Sevilla&#39;, 2020, 19, 6, 6],
+       [&#39;FCBarcelona&#39;, 2019, 26, 9, 3],
+       [&#39;AtleticoMadrid&#39;, 2019, 22, 10, 6],
+       [&#39;RealMadrid&#39;, 2019, 21, 5, 12],
+       [&#39;FCBarcelona&#39;, 2018, 28, 9, 1],
+       [&#39;AtleticoMadrid&#39;, 2018, 23, 10, 5],
+       [&#39;RealMadrid&#39;, 2018, 22, 10, 6]], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types">
+<h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<p>When Pandas reads information into a DataFrame, it tries to guess what <em>type</em> of <em>data</em> (e.g. numeric, text, so on) is reading in order to store it efficiently. Getting the right data type is important, not only because of storing efficiency, but also because it dictates what kind of operations we can use with them. Here are the main Pandas data types,</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Type</p></th>
+<th class="head text-center"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>object</p></td>
+<td class="text-center"><p>string</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>int64</p></td>
+<td class="text-center"><p>integer</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>float64</p></td>
+<td class="text-center"><p>float</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>bool</p></td>
+<td class="text-center"><p>boolean</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>datetime64</p></td>
+<td class="text-center"><p>date time</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>timedelta[ns]</p></td>
+<td class="text-center"><p>time interval between two datetimes</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>category</p></td>
+<td class="text-center"><p>list of text values</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When Pandas cannot recognize the data type it will default to <code class="docutils literal notranslate"><span class="pre">object</span></code>. Use <code class="docutils literal notranslate"><span class="pre">.dtype</span></code> property of a DataFrame to list all of its data types,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>team      object
+year       int64
+wins       int64
+draws      int64
+losses     int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can often switch from one data type to another using the Pandas’s method <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html"><code class="docutils literal notranslate"><span class="pre">.astype()</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">wins</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    26.0
+1    25.0
+2    19.0
+3    26.0
+4    22.0
+5    21.0
+6    28.0
+7    23.0
+8    22.0
+Name: wins, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-new-column-series">
+<h3>Create a New Column/Series<a class="headerlink" href="#create-a-new-column-series" title="Link to this heading">#</a></h3>
+<p>There are several ways to generate a new column or series in Pandas. The simplest is by simply adding a new column as you would add a new entry in a Python dictionary. Let’s create a new <em>‘dummy’</em> column we will delete later on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Erase Me&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>Erase Me</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Another way is by combining ENTIRE columns in a DataFrame. For instance, we can generate a new column that provides a simple measure of failure for each team based on their wins, draws and losses.</p>
+<p><span class="math notranslate nohighlight">\(failure = \frac{draws + losses}{wins}\)</span></p>
+<p>The larger the index of <span class="math notranslate nohighlight">\(failure\)</span> the less successful was a team.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a new DataFrame column # df[&#39;failure&#39;] = (df[&#39;draws&#39;] + df[&#39;losses&#39;]) / df[&#39;wins&#39;]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;failure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">draws</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>  <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">wins</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>Erase Me</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="sorting-a-dataframe">
+<h3>Sorting a DataFrame<a class="headerlink" href="#sorting-a-dataframe" title="Link to this heading">#</a></h3>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> function to sort the entries in a DataFrame using one or several columns. Here you will sort them by the newly created <em>failure</em> index in descending order (by default Pandas sorts in ascending order).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s sort teams based on the failure index from worst to better</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;failure&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>Erase Me</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0.230769</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="deleting-a-column-series">
+<h3>Deleting a column/series<a class="headerlink" href="#deleting-a-column-series" title="Link to this heading">#</a></h3>
+<p>To delete a column use Pandas method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html"><code class="docutils literal notranslate"><span class="pre">.drop()</span></code></a>,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># delete column failure</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Erase Me&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The above method has not <strong>actually</strong> changed the original DataFrame yet. In order to do this, you need to overwrite the original DataFrame with the one obtained after running the method.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>Erase Me</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Erase Me&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>team</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="renaming-a-column-s">
+<h3>Renaming a Column/s<a class="headerlink" href="#renaming-a-column-s" title="Link to this heading">#</a></h3>
+<p>To rename one or several columns we use Pandas’ <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"><code class="docutils literal notranslate"><span class="pre">.rename()</span></code></a> method. This method uses a dictionary to ‘map’ the old name/s to the new one/s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;team&#39;</span><span class="p">:</span><span class="s1">&#39;club&#39;</span><span class="p">,</span> <span class="s1">&#39;failure&#39;</span><span class="p">:</span><span class="s1">&#39;f-index&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>club</th>
+      <th>year</th>
+      <th>wins</th>
+      <th>draws</th>
+      <th>losses</th>
+      <th>f-index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RealMadrid</td>
+      <td>2020</td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FCBarcelona</td>
+      <td>2020</td>
+      <td>25</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.480000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sevilla</td>
+      <td>2020</td>
+      <td>19</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0.631579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>FCBarcelona</td>
+      <td>2019</td>
+      <td>26</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0.461538</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AtleticoMadrid</td>
+      <td>2019</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RealMadrid</td>
+      <td>2019</td>
+      <td>21</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0.809524</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FCBarcelona</td>
+      <td>2018</td>
+      <td>28</td>
+      <td>9</td>
+      <td>1</td>
+      <td>0.357143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AtleticoMadrid</td>
+      <td>2018</td>
+      <td>23</td>
+      <td>10</td>
+      <td>5</td>
+      <td>0.652174</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RealMadrid</td>
+      <td>2018</td>
+      <td>22</td>
+      <td>10</td>
+      <td>6</td>
+      <td>0.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../python/documentation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Documentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cleaning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reading and Cleaning Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">Pandas series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-index">Reset Index</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">Pandas DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-dataframe">Anatomy of a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parts">Parts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-series">Create a New Column/Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-a-dataframe">Sorting a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-a-column-series">Deleting a column/series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-a-column-s">Renaming a Column/s</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcos Llobera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

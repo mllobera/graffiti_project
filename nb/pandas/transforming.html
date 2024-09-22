@@ -1,0 +1,1679 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Transforming &#8212; Graffiti Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/pandas/transforming';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chaining" href="chaining.html" />
+    <link rel="prev" title="Joins" href="joining.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GraffitiProject.png" class="logo__image only-light" alt="Graffiti Project - Home"/>
+    <script>document.write(`<img src="../../_static/GraffitiProject.png" class="logo__image only-dark" alt="Graffiti Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Graffiti Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Collecting Graffiti Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../collecting/app_project.html">Project Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collecting/collecting.html">Collecting Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preliminaries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/notebook_basics.html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/file_structure_basics.html">File structure basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/markdown.html">Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/dictionary.html">Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/flow.html">Comparisons and Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">Modules and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing (Pandas)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Pandas Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning.html">Reading and Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing.html">Accessing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joining.html">Joins</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Transforming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaining.html">Chaining</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/pandas_plot.html">Pandas Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_i.html">GeoSpatial I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_ii.html">GeoSpatial II</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/simple_stats.html">Simple Statistics</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workbooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case1.html">Case 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case2.html">Case 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnb/pandas/transforming.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/pandas/transforming.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Transforming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-formats">Table formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-format">Wide format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-tall-or-tidy-format">Long (<em>tall</em>  or <em>tidy</em>) format</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-to-long-tall-or-tidy"><em>Wide</em> to <em>Long</em> (<em>tall</em> or <em>tidy</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-tall-or-tidy-to-wide"><em>Long</em> (<em>tall</em> or <em>tidy</em>) to <em>Wide</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-references">Additional References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="transforming">
+<h1>Transforming<a class="headerlink" href="#transforming" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="read-csv-files">
+<h2>Read csv files<a class="headerlink" href="#read-csv-files" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># creating a relative path to the data folder </span>
+<span class="n">pth</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read canvas csv file into a dataframe </span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span> <span class="o">/</span> <span class="s1">&#39;canvas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read graffito</span>
+<span class="n">graffiti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span><span class="o">/</span><span class="s1">&#39;graffiti.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="table-formats">
+<h2>Table formats<a class="headerlink" href="#table-formats" title="Link to this heading">#</a></h2>
+<p>A big issue in data analysis that feels like it should be obvious but often is not, is how to set up your data.</p>
+<p>In order to answer this question you first need to consider the following:</p>
+<ul class="simple">
+<li><p>Which is/are your variable/s?</p></li>
+<li><p>What actually represents your unit of observation?</p></li>
+<li><p>How should data be distributed in a data table? What does a row or column actually represent?</p></li>
+</ul>
+<p>Answering these practical questions is not as trivial as you may think. If the data is not organized in the right way, you will not be able to do your analysis or visualization easily (or not at all).</p>
+<p>For the most part data tables can be found in two main formats (or a mixture of both):</p>
+<ol class="arabic simple">
+<li><p>Wide format</p></li>
+<li><p>Long format (aka <em>tidy</em>, <em>tall</em>)</p></li>
+</ol>
+<section id="wide-format">
+<h3>Wide format<a class="headerlink" href="#wide-format" title="Link to this heading">#</a></h3>
+<p>In this format, all of the observations about a single subject are in the same row. E.g.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Height</p></th>
+<th class="head"><p>Width</p></th>
+<th class="head"><p>Weight</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Samsung Edge</p></td>
+<td><p>15</p></td>
+<td><p>10</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Samsung Note</p></td>
+<td><p>20</p></td>
+<td><p>10</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>IPhone15</p></td>
+<td><p>10</p></td>
+<td><p>5</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate wide dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Samsung Edge&#39;</span><span class="p">,</span> <span class="s1">&#39;Samsung Note&#39;</span><span class="p">,</span> <span class="s1">&#39;IPhone15&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+<span class="n">wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product</th>
+      <th>height</th>
+      <th>width</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Samsung Edge</td>
+      <td>15</td>
+      <td>10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Samsung Note</td>
+      <td>20</td>
+      <td>10</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>IPhone15</td>
+      <td>10</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="long-tall-or-tidy-format">
+<h3>Long (<em>tall</em>  or <em>tidy</em>) format<a class="headerlink" href="#long-tall-or-tidy-format" title="Link to this heading">#</a></h3>
+<p>In this format,</p>
+<ul class="simple">
+<li><p>Each variable must have its own column</p></li>
+<li><p>Each observation must have its own row</p></li>
+<li><p>Each value must have its own cell</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Attribute</p></th>
+<th class="head"><p>Measure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>IPhoneX</p></td>
+<td><p>Height</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>IPhoneX</p></td>
+<td><p>Width</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>IPhoneX</p></td>
+<td><p>Weight</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Samsung Note</p></td>
+<td><p>Height</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Samsung Note</p></td>
+<td><p>Width</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Samsung Note</p></td>
+<td><p>Weight</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Samsung Edge</p></td>
+<td><p>Height</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Samsung Edge</p></td>
+<td><p>Width</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Samsung Edge</p></td>
+<td><p>Weight</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="wide-to-long-tall-or-tidy">
+<h2><em>Wide</em> to <em>Long</em> (<em>tall</em> or <em>tidy</em>)<a class="headerlink" href="#wide-to-long-tall-or-tidy" title="Link to this heading">#</a></h2>
+<p>In Pandas this can be achieved in several different ways, but here we will consider only one of them. Whenever we want to go from a wide format to a long we will use the Pandas’ special function <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.melt.html"><code class="docutils literal notranslate"><span class="pre">melt()</span></code></a>. This function has as its main parameters (for more examples see <a class="reference external" href="https://hausetutorials.netlify.app/posts/2020-05-14-reshaping-data-in-python-pandas/">here</a>):</p>
+<ul class="simple">
+<li><p><em>id_vars</em>: Column/s used to identify and order  rows vertically</p></li>
+<li><p><em>value_vars</em>: Column/s that are going to be ‘unpivoted’ (i.e. assembled into a single, ‘variable’, column by repeating them as necessary). If not specified, then all columns are used.</p></li>
+<li><p><em>var_name</em>: Name to be used to label the ‘variable’ column. If None, Pandas uses ‘variable’ as a label.</p></li>
+<li><p><em>value_name</em>: Name to use to label the ‘value’ column.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/melt.png"><img alt="melt" class="align-center" src="../../_images/melt.png" style="width: 85%;" /></a>
+<p>In general, data that is in <em>long</em> or <em>tidy</em> format can be analyzed better. Data from individual columns can be more readily used in calculations. Let’s reshape our small wide dataframe into a long/tidy dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;measure&#39;</span><span class="p">)</span>
+<span class="n">tidy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product</th>
+      <th>attribute</th>
+      <th>measure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Samsung Edge</td>
+      <td>width</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Samsung Note</td>
+      <td>width</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>IPhone15</td>
+      <td>width</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Samsung Edge</td>
+      <td>height</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Samsung Note</td>
+      <td>height</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>IPhone15</td>
+      <td>height</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Samsung Edge</td>
+      <td>weight</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Samsung Note</td>
+      <td>weight</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>IPhone15</td>
+      <td>weight</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Reshape the graffiti DataFrame into a long/tidy dataframe specifying only <strong>one</strong> identifier column. Each row holds information about each column-value pair contained in the entire DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;attribute&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>attribute</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>piece</td>
+      <td>id</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>piece</td>
+      <td>id</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tag</td>
+      <td>id</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hollow</td>
+      <td>id</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tag</td>
+      <td>id</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>69022</th>
+      <td>piece</td>
+      <td>transcription</td>
+      <td>SNIDE</td>
+    </tr>
+    <tr>
+      <th>69023</th>
+      <td>piece</td>
+      <td>transcription</td>
+      <td>CARPO (VOA)</td>
+    </tr>
+    <tr>
+      <th>69024</th>
+      <td>hollow</td>
+      <td>transcription</td>
+      <td>CARPO</td>
+    </tr>
+    <tr>
+      <th>69025</th>
+      <td>tag</td>
+      <td>transcription</td>
+      <td>MUTE</td>
+    </tr>
+    <tr>
+      <th>69026</th>
+      <td>tag</td>
+      <td>transcription</td>
+      <td>BEASTER 2/10</td>
+    </tr>
+  </tbody>
+</table>
+<p>69027 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Reshape graffiti DataFrame into a long/tidy dataframe specifying <strong>two</strong> identifier columns</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>message</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>piece</td>
+      <td>writter</td>
+      <td>id</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>piece</td>
+      <td>other</td>
+      <td>id</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tag</td>
+      <td>NaN</td>
+      <td>id</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hollow</td>
+      <td>NaN</td>
+      <td>id</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tag</td>
+      <td>writter</td>
+      <td>id</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>65389</th>
+      <td>piece</td>
+      <td>writter</td>
+      <td>transcription</td>
+      <td>SNIDE</td>
+    </tr>
+    <tr>
+      <th>65390</th>
+      <td>piece</td>
+      <td>writter</td>
+      <td>transcription</td>
+      <td>CARPO (VOA)</td>
+    </tr>
+    <tr>
+      <th>65391</th>
+      <td>hollow</td>
+      <td>writter</td>
+      <td>transcription</td>
+      <td>CARPO</td>
+    </tr>
+    <tr>
+      <th>65392</th>
+      <td>tag</td>
+      <td>writter</td>
+      <td>transcription</td>
+      <td>MUTE</td>
+    </tr>
+    <tr>
+      <th>65393</th>
+      <td>tag</td>
+      <td>writter</td>
+      <td>transcription</td>
+      <td>BEASTER 2/10</td>
+    </tr>
+  </tbody>
+</table>
+<p>65394 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reshape graffiti dataframe into a long/tidy dataframe specifying identifier and column/s of interest</span>
+<span class="n">long</span> <span class="o">=</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="n">long</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>piece</td>
+      <td>width</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>piece</td>
+      <td>width</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tag</td>
+      <td>width</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hollow</td>
+      <td>width</td>
+      <td>365</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tag</td>
+      <td>width</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7261</th>
+      <td>piece</td>
+      <td>height</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>7262</th>
+      <td>piece</td>
+      <td>height</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>7263</th>
+      <td>hollow</td>
+      <td>height</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>7264</th>
+      <td>tag</td>
+      <td>height</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>7265</th>
+      <td>tag</td>
+      <td>height</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+<p>7266 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="long-tall-or-tidy-to-wide">
+<h2><em>Long</em> (<em>tall</em> or <em>tidy</em>) to <em>Wide</em><a class="headerlink" href="#long-tall-or-tidy-to-wide" title="Link to this heading">#</a></h2>
+<p>In Pandas, this can be achieved in several different ways. Here we will only consider one of them. To convert from long to wide we use the Pandas function <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.pivot_table.html"><code class="docutils literal notranslate"><span class="pre">pivot_table()</span></code></a>. This function has as its main parameters:</p>
+<ul class="simple">
+<li><p><em>Index</em>: Which column/s should be used to identify and order your rows vertically</p></li>
+<li><p><em>Columns</em>: Which column/s should be used to create the new columns. The new DataFrame will have as many columns as there are unique values.</p></li>
+<li><p><em>Values</em>: Which column/s should be used to fill the values in the cells of our DataFrame.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/pivot_table.png"><img alt="pivot table" class="align-center" src="../../_images/pivot_table.png" style="width: 85%;" /></a>
+<p>A pivot table allows you to take columns of raw data from a pandas DataFrame, summarize them, and then analyze the summary data to reveal its insights. You can calculate common aggregate statistical calculations such as sums, counts, averages, and so on, revealing trends that your original raw data hides.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reshape small dataframe back into wide format</span>
+<span class="n">wide</span> <span class="o">=</span> <span class="n">tidy</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;measure&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>attribute</th>
+      <th>product</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IPhone15</td>
+      <td>10.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Samsung Edge</td>
+      <td>15.0</td>
+      <td>3.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Samsung Note</td>
+      <td>20.0</td>
+      <td>4.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate a pivot table from graffiti long format </span>
+<span class="n">wide</span> <span class="o">=</span> <span class="n">long</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>type</th>
+      <th colspan="2" halign="left">count</th>
+      <th colspan="2" halign="left">mean</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="2" halign="left">value</th>
+      <th colspan="2" halign="left">value</th>
+    </tr>
+    <tr>
+      <th>variable</th>
+      <th></th>
+      <th>height</th>
+      <th>width</th>
+      <th>height</th>
+      <th>width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>blockbuster</td>
+      <td>17</td>
+      <td>17</td>
+      <td>78.941176</td>
+      <td>232.705882</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>edging</td>
+      <td>15</td>
+      <td>15</td>
+      <td>24.200000</td>
+      <td>63.200000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>hollow</td>
+      <td>162</td>
+      <td>162</td>
+      <td>98.543210</td>
+      <td>226.006173</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>other</td>
+      <td>106</td>
+      <td>106</td>
+      <td>44.169811</td>
+      <td>58.915094</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pasteUp</td>
+      <td>13</td>
+      <td>13</td>
+      <td>41.538462</td>
+      <td>22.461538</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>piece</td>
+      <td>121</td>
+      <td>121</td>
+      <td>120.958678</td>
+      <td>200.214876</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>stencil</td>
+      <td>8</td>
+      <td>8</td>
+      <td>25.625000</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>sticker</td>
+      <td>442</td>
+      <td>442</td>
+      <td>9.990950</td>
+      <td>10.466063</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>tag</td>
+      <td>2446</td>
+      <td>2446</td>
+      <td>29.544971</td>
+      <td>40.646361</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>throwUp</td>
+      <td>280</td>
+      <td>280</td>
+      <td>108.450000</td>
+      <td>205.346429</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>wildstyle</td>
+      <td>23</td>
+      <td>23</td>
+      <td>136.347826</td>
+      <td>245.826087</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can change the name of our columns/Series and drop redundant ones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;count_dummy&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_height&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_width&#39;</span><span class="p">]</span>
+<span class="n">wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>count_dummy</th>
+      <th>count</th>
+      <th>mean_height</th>
+      <th>mean_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>blockbuster</td>
+      <td>17</td>
+      <td>17</td>
+      <td>78.941176</td>
+      <td>232.705882</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>edging</td>
+      <td>15</td>
+      <td>15</td>
+      <td>24.200000</td>
+      <td>63.200000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>hollow</td>
+      <td>162</td>
+      <td>162</td>
+      <td>98.543210</td>
+      <td>226.006173</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>other</td>
+      <td>106</td>
+      <td>106</td>
+      <td>44.169811</td>
+      <td>58.915094</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pasteUp</td>
+      <td>13</td>
+      <td>13</td>
+      <td>41.538462</td>
+      <td>22.461538</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>piece</td>
+      <td>121</td>
+      <td>121</td>
+      <td>120.958678</td>
+      <td>200.214876</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>stencil</td>
+      <td>8</td>
+      <td>8</td>
+      <td>25.625000</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>sticker</td>
+      <td>442</td>
+      <td>442</td>
+      <td>9.990950</td>
+      <td>10.466063</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>tag</td>
+      <td>2446</td>
+      <td>2446</td>
+      <td>29.544971</td>
+      <td>40.646361</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>throwUp</td>
+      <td>280</td>
+      <td>280</td>
+      <td>108.450000</td>
+      <td>205.346429</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>wildstyle</td>
+      <td>23</td>
+      <td>23</td>
+      <td>136.347826</td>
+      <td>245.826087</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop first column</span>
+<span class="n">wide</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span> <span class="s2">&quot;count_dummy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>count</th>
+      <th>mean_height</th>
+      <th>mean_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>blockbuster</td>
+      <td>17</td>
+      <td>78.941176</td>
+      <td>232.705882</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>edging</td>
+      <td>15</td>
+      <td>24.200000</td>
+      <td>63.200000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>hollow</td>
+      <td>162</td>
+      <td>98.543210</td>
+      <td>226.006173</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>other</td>
+      <td>106</td>
+      <td>44.169811</td>
+      <td>58.915094</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pasteUp</td>
+      <td>13</td>
+      <td>41.538462</td>
+      <td>22.461538</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>piece</td>
+      <td>121</td>
+      <td>120.958678</td>
+      <td>200.214876</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>stencil</td>
+      <td>8</td>
+      <td>25.625000</td>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>sticker</td>
+      <td>442</td>
+      <td>9.990950</td>
+      <td>10.466063</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>tag</td>
+      <td>2446</td>
+      <td>29.544971</td>
+      <td>40.646361</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>throwUp</td>
+      <td>280</td>
+      <td>108.450000</td>
+      <td>205.346429</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>wildstyle</td>
+      <td>23</td>
+      <td>136.347826</td>
+      <td>245.826087</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="additional-references">
+<h2>Additional References<a class="headerlink" href="#additional-references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>For more on the use of <a class="reference external" href="https://www.slingacademy.com/article/pandas-using-dataframe-melt-method-5-examples/"><code class="docutils literal notranslate"><span class="pre">melt()</span></code></a>.</p></li>
+<li><p>For more on <a class="reference external" href="https://realpython.com/how-to-pandas-pivot-table/">pivot tables</a>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="joining.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Joins</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chaining.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chaining</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-formats">Table formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-format">Wide format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-tall-or-tidy-format">Long (<em>tall</em>  or <em>tidy</em>) format</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-to-long-tall-or-tidy"><em>Wide</em> to <em>Long</em> (<em>tall</em> or <em>tidy</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-tall-or-tidy-to-wide"><em>Long</em> (<em>tall</em> or <em>tidy</em>) to <em>Wide</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-references">Additional References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcos Llobera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

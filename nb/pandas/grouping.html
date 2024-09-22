@@ -1,0 +1,1484 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Grouping Data &#8212; Graffiti Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/pandas/grouping';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Joins" href="joining.html" />
+    <link rel="prev" title="Functions" href="functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GraffitiProject.png" class="logo__image only-light" alt="Graffiti Project - Home"/>
+    <script>document.write(`<img src="../../_static/GraffitiProject.png" class="logo__image only-dark" alt="Graffiti Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Graffiti Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Collecting Graffiti Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../collecting/app_project.html">Project Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collecting/collecting.html">Collecting Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preliminaries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/notebook_basics.html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/file_structure_basics.html">File structure basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/markdown.html">Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/dictionary.html">Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/flow.html">Comparisons and Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">Modules and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing (Pandas)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Pandas Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning.html">Reading and Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing.html">Accessing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joining.html">Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforming.html">Transforming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaining.html">Chaining</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/pandas_plot.html">Pandas Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_i.html">GeoSpatial I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_ii.html">GeoSpatial II</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/simple_stats.html">Simple Statistics</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workbooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case1.html">Case 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case2.html">Case 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnb/pandas/grouping.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/pandas/grouping.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Grouping Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping">Grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-groupby-object">Exploring Groupby() object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-a-group">Retrieving a Group</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-with-mutliple-columns">Grouping with Mutliple Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-summaries">Simple Summaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agg-aggregate"><code class="docutils literal notranslate"><span class="pre">.agg()</span></code> <code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-references">Additional References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="grouping-data">
+<h1>Grouping Data<a class="headerlink" href="#grouping-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="read-csv-files">
+<h2>Read csv files<a class="headerlink" href="#read-csv-files" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># creating a relative path to the data folder </span>
+<span class="n">pth</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read canvas csv file into a dataframe </span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span> <span class="o">/</span> <span class="s1">&#39;canvas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read graffito</span>
+<span class="n">graffiti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span><span class="o">/</span><span class="s1">&#39;graffiti.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="grouping">
+<h2>Grouping<a class="headerlink" href="#grouping" title="Link to this heading">#</a></h2>
+<p>Use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">.groupby()</span></code></a> to group information based on the entries in one or more columns</p>
+<section id="exploring-groupby-object">
+<h3>Exploring Groupby() object<a class="headerlink" href="#exploring-groupby-object" title="Link to this heading">#</a></h3>
+<p>The result of <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> by itself is not terribly useful but it is still helpful to become familiar with some of its attributes. Let’s group entries in the graffiti table by their <em>type</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a groupby object</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000023C4E3EB230&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> returns the groups it has generated as a Python <a class="reference internal" href="../python/dictionary.html"><span class="std std-doc">Dictionary</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span><span class="o">.</span><span class="n">groups</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;blockbuster&#39;: [118, 944, 952, 1420, 1505, 1993, 2021, 2027, 2052, 2056, 2064, 2068, 2072, 2086, 2091, 2125, 2804], &#39;edging&#39;: [711, 718, 1757, 1758, 1759, 1760, 1762, 1763, 1765, 1766, 1767, 3362, 3557, 3562, 3624], &#39;hollow&#39;: [3, 111, 236, 417, 425, 434, 441, 446, 447, 550, 551, 611, 625, 626, 630, 631, 632, 636, 640, 641, 642, 759, 764, 797, 809, 913, 918, 925, 942, 1046, 1049, 1082, 1182, 1281, 1348, 1349, 1449, 1462, 1544, 1567, 1568, 1589, 1596, 1612, 1628, 1644, 1671, 1710, 1711, 1712, 1713, 1715, 1719, 1727, 1728, 1730, 1731, 1737, 1768, 1787, 1809, 1811, 1819, 1820, 1821, 1822, 1823, 1826, 1828, 1829, 1830, 1831, 1835, 1836, 1838, 1841, 1842, 1846, 1882, 1887, 1900, 1932, 1960, 1965, 1997, 2003, 2012, 2024, 2065, 2155, 2199, 2201, 2202, 2370, 2373, 2375, 2376, 2385, 2390, 2395, ...], &#39;other&#39;: [174, 175, 177, 188, 215, 216, 219, 228, 234, 285, 495, 573, 580, 585, 743, 751, 755, 757, 1028, 1033, 1043, 1045, 1079, 1379, 1385, 1389, 1395, 1461, 1480, 1481, 1482, 1502, 1658, 1691, 1721, 1925, 1928, 1930, 1935, 1941, 1942, 1956, 1957, 1986, 1989, 2108, 2117, 2119, 2283, 2287, 2297, 2298, 2299, 2306, 2317, 2469, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2569, 2570, 2575, 2578, 2579, 2580, 2613, 2621, 2625, 2656, 2660, 2704, 2711, 2713, 2718, 2807, 2817, 2819, 2820, 2823, 2825, 2935, 2936, 2969, 3007, 3009, 3011, 3014, 3083, 3098, 3163, 3170, 3180, 3302, 3335, 3342, 3381, ...], &#39;pasteUp&#39;: [145, 770, 781, 785, 1414, 1417, 2019, 2231, 2480, 2520, 2832, 3160, 3610], &#39;piece&#39;: [0, 1, 16, 17, 19, 55, 109, 413, 428, 429, 456, 564, 565, 566, 575, 597, 621, 926, 1040, 1055, 1057, 1058, 1159, 1410, 1450, 1484, 1488, 1489, 1491, 1493, 1494, 1498, 1501, 1503, 1674, 1700, 1735, 1736, 1746, 1748, 1849, 1926, 1955, 1958, 1959, 1990, 2009, 2032, 2047, 2058, 2062, 2063, 2069, 2081, 2124, 2127, 2139, 2243, 2338, 2339, 2340, 2341, 2346, 2347, 2348, 2349, 2372, 2399, 2400, 2401, 2408, 2409, 2415, 2418, 2427, 2428, 2430, 2443, 2456, 2461, 2473, 2512, 2607, 2610, 2615, 2626, 2635, 2799, 2827, 2846, 2855, 2873, 2938, 3019, 3027, 3059, 3214, 3222, 3224, 3229, ...], &#39;stencil&#39;: [213, 1081, 1140, 1332, 2281, 2872, 3555, 3585], &#39;sticker&#39;: [59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 75, 76, 77, 78, 119, 133, 135, 136, 137, 138, 139, 140, 142, 143, 144, 191, 195, 196, 197, 204, 205, 206, 207, 208, 212, 214, 259, 260, 261, 262, 263, 266, 267, 272, 273, 275, 277, 278, 281, 283, 291, 292, 293, 294, 297, 298, 305, 307, 308, 310, 311, 312, 313, 314, 315, 316, 317, 318, 320, 321, 322, 323, 324, 325, 327, 329, 330, 331, 332, 333, 348, 361, 382, 397, 398, 404, 452, 453, 454, 455, 457, 458, 460, 461, 462, 463, ...], &#39;tag&#39;: [2, 4, 5, 6, 9, 13, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 67, 74, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 110, 112, 113, 115, 120, 121, 122, 123, 124, 125, 127, 128, 129, 130, 131, 132, 134, 141, 146, 147, 148, 151, 152, 153, 154, 159, 160, 161, 162, 163, ...], &#39;throwUp&#39;: [7, 8, 10, 11, 12, 14, 18, 29, 54, 56, 57, 58, 96, 108, 114, 116, 117, 149, 150, 155, 156, 157, 158, 165, 178, 179, 180, 181, 185, 218, 220, 235, 240, 412, 415, 416, 420, 421, 422, 423, 424, 426, 431, 435, 451, 556, 567, 592, 595, 602, 606, 609, 610, 613, 614, 619, 628, 629, 760, 761, 765, 766, 900, 901, 902, 903, 923, 927, 928, 929, 931, 936, 979, 988, 993, 1001, 1032, 1056, 1107, 1132, 1172, 1179, 1181, 1186, 1188, 1200, 1201, 1204, 1210, 1211, 1218, 1234, 1237, 1248, 1249, 1250, 1277, 1278, 1279, 1280, ...], &#39;wildstyle&#39;: [126, 940, 945, 953, 1178, 1276, 1439, 1490, 1630, 1669, 1670, 1672, 1848, 2036, 2060, 2123, 2140, 2410, 2411, 2452, 2609, 3041, 3542]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You access its entries, keys and values as you would any Python Dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Names of the groups?</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;blockbuster&#39;, &#39;edging&#39;, &#39;hollow&#39;, &#39;other&#39;, &#39;pasteUp&#39;, &#39;piece&#39;, &#39;stencil&#39;, &#39;sticker&#39;, &#39;tag&#39;, &#39;throwUp&#39;, &#39;wildstyle&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># return (row) indexes  for all entries in the &#39;throwUp&#39; group</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="s1">&#39;throwUp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([   7,    8,   10,   11,   12,   14,   18,   29,   54,   56,
+       ...
+       3447, 3450, 3452, 3453, 3523, 3525, 3575, 3580, 3596, 3616],
+      dtype=&#39;int64&#39;, length=280)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="retrieving-a-group">
+<h3>Retrieving a Group<a class="headerlink" href="#retrieving-a-group" title="Link to this heading">#</a></h3>
+<p>You can retrieve the entries of a particular group as a DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get &#39;piece&#39; group?</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;piece&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>canvas_id</th>
+      <th>created_at</th>
+      <th>uploaded_at</th>
+      <th>title</th>
+      <th>num</th>
+      <th>date_recorded</th>
+      <th>width</th>
+      <th>height</th>
+      <th>type</th>
+      <th>technique</th>
+      <th>marker_type</th>
+      <th>nip_type</th>
+      <th>other</th>
+      <th>num_colors</th>
+      <th>colors</th>
+      <th>nature_graffiti</th>
+      <th>transcribable</th>
+      <th>message</th>
+      <th>transcription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>2023-11-27 13:40:11-08:00</td>
+      <td>2023-11-27 13:40:35-08:00</td>
+      <td>11/27/2023 “Roja”</td>
+      <td>1</td>
+      <td>11/27/2023</td>
+      <td>91</td>
+      <td>35</td>
+      <td>piece</td>
+      <td>spray</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>['black', 'white']</td>
+      <td>['Image', 'Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>“Roja”</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>3</td>
+      <td>2023-11-27 13:39:13-08:00</td>
+      <td>2023-11-27 13:40:33-08:00</td>
+      <td>11/27/2023 Triangle/prism</td>
+      <td>1</td>
+      <td>11/27/2023</td>
+      <td>91</td>
+      <td>60</td>
+      <td>piece</td>
+      <td>spray</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3-5</td>
+      <td>['black', 'white', 'red', 'gold']</td>
+      <td>['Image']</td>
+      <td>Y</td>
+      <td>other</td>
+      <td>Triangle/prism</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>4</td>
+      <td>2023-11-27 13:14:51-08:00</td>
+      <td>2023-11-27 13:33:25-08:00</td>
+      <td>11/27/2023 Aim</td>
+      <td>1</td>
+      <td>11/27/2023</td>
+      <td>162</td>
+      <td>151</td>
+      <td>piece</td>
+      <td>spray</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>['black', 'white']</td>
+      <td>['Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>Aim</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="grouping-with-mutliple-columns">
+<h3>Grouping with Mutliple Columns<a class="headerlink" href="#grouping-with-mutliple-columns" title="Link to this heading">#</a></h3>
+<p>Pandas allows you to use more than one column when generating groups. When doing so, Pandas will group based on the first column, within each of the groups created from that first grouping it will group again based on the second column and so on. You end up with information grouped in a hierarchical manner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># group by canvas_location and viewing_potential</span>
+<span class="n">grp</span><span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;canvas_location&#39;</span><span class="p">,</span> <span class="s1">&#39;viewing_potential&#39;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what are the groups?</span>
+<span class="n">grp</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([(&#39;alley&#39;, &#39;high&#39;), (&#39;alley&#39;, &#39;low&#39;), (&#39;alley&#39;, &#39;medium&#39;), (&#39;bridge&#39;, &#39;high&#39;), (&#39;bridge&#39;, &#39;low&#39;), (&#39;bridge&#39;, &#39;medium&#39;), (&#39;highway&#39;, &#39;low&#39;), (&#39;highway&#39;, &#39;medium&#39;), (&#39;indoors&#39;, &#39;high&#39;), (&#39;indoors&#39;, &#39;low&#39;), (&#39;indoors&#39;, &#39;medium&#39;), (&#39;other&#39;, &#39;high&#39;), (&#39;other&#39;, &#39;low&#39;), (&#39;other&#39;, &#39;medium&#39;), (&#39;overpass&#39;, &#39;high&#39;), (&#39;railroad_tracks&#39;, &#39;high&#39;), (&#39;railroad_tracks&#39;, &#39;low&#39;), (&#39;railroad_tracks&#39;, &#39;medium&#39;), (&#39;roof&#39;, &#39;high&#39;), (&#39;roof&#39;, &#39;medium&#39;), (&#39;street&#39;, &#39;high&#39;), (&#39;street&#39;, &#39;low&#39;), (&#39;street&#39;, &#39;medium&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># return entries for alley and high visibility</span>
+<span class="n">grp</span><span class="o">.</span><span class="n">get_group</span><span class="p">((</span><span class="s1">&#39;alley&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created_at</th>
+      <th>uploaded_at</th>
+      <th>title</th>
+      <th>at_canvas</th>
+      <th>coords</th>
+      <th>date_entry_canvas</th>
+      <th>property_type</th>
+      <th>property_use</th>
+      <th>surveillance_status</th>
+      <th>surveillance</th>
+      <th>canvas_location</th>
+      <th>canvas_nature</th>
+      <th>surface_material</th>
+      <th>graffiti_removal</th>
+      <th>viewing_potential</th>
+      <th>accessibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>2023-11-26 19:37:06-08:00</td>
+      <td>2023-11-26 19:52:38-08:00</td>
+      <td>11/26/2023 Sign</td>
+      <td>Y</td>
+      <td>{'latitude': 47.620266, 'longitude': -122.3197...</td>
+      <td>11/26/2023</td>
+      <td>comercial</td>
+      <td>in_use</td>
+      <td>Y</td>
+      <td>['cameras', 'lights']</td>
+      <td>alley</td>
+      <td>sign</td>
+      <td>['metal']</td>
+      <td>N</td>
+      <td>high</td>
+      <td>['street_Level']</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>83</td>
+      <td>2023-11-21 14:24:00-08:00</td>
+      <td>2023-11-26 18:30:29-08:00</td>
+      <td>11/21/2023 Wall</td>
+      <td>Y</td>
+      <td>{'latitude': 47.610107, 'longitude': -122.3404...</td>
+      <td>11/21/2023</td>
+      <td>comercial</td>
+      <td>in_use</td>
+      <td>Y</td>
+      <td>['cameras', 'lights', 'alarms', 'people']</td>
+      <td>alley</td>
+      <td>wall</td>
+      <td>['brick']</td>
+      <td>N</td>
+      <td>high</td>
+      <td>['street_Level']</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>131</td>
+      <td>2023-11-18 10:43:16.091000-08:00</td>
+      <td>2023-11-18 12:54:18-08:00</td>
+      <td>11/18/2023 Wall</td>
+      <td>Y</td>
+      <td>{'latitude': 47.661555, 'longitude': -122.3148...</td>
+      <td>11/18/2023</td>
+      <td>comercial</td>
+      <td>in_use</td>
+      <td>Y</td>
+      <td>['lights', 'people', 'cameras']</td>
+      <td>alley</td>
+      <td>wall</td>
+      <td>['concrete']</td>
+      <td>N</td>
+      <td>high</td>
+      <td>['street_Level']</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Handling multi-indexes is not trivial.</p>
+</section>
+<section id="simple-summaries">
+<h3>Simple Summaries<a class="headerlink" href="#simple-summaries" title="Link to this heading">#</a></h3>
+<p>Once information has been grouped, you can apply various Pandas’ methods to generate numerical summaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of entries</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+blockbuster      17
+edging           15
+hollow          162
+other           106
+pasteUp          13
+piece           121
+stencil           8
+sticker         442
+tag            2446
+throwUp         280
+wildstyle        23
+Name: type, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#similar to value_counts()</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+tag            2446
+sticker         442
+throwUp         280
+hollow          162
+piece           121
+other           106
+wildstyle        23
+blockbuster      17
+edging           15
+pasteUp          13
+stencil           8
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean width and height</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)[[</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>width</th>
+      <th>height</th>
+    </tr>
+    <tr>
+      <th>type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>blockbuster</th>
+      <td>232.705882</td>
+      <td>78.941176</td>
+    </tr>
+    <tr>
+      <th>edging</th>
+      <td>63.200000</td>
+      <td>24.200000</td>
+    </tr>
+    <tr>
+      <th>hollow</th>
+      <td>226.006173</td>
+      <td>98.543210</td>
+    </tr>
+    <tr>
+      <th>other</th>
+      <td>58.915094</td>
+      <td>44.169811</td>
+    </tr>
+    <tr>
+      <th>pasteUp</th>
+      <td>22.461538</td>
+      <td>41.538462</td>
+    </tr>
+    <tr>
+      <th>piece</th>
+      <td>200.214876</td>
+      <td>120.958678</td>
+    </tr>
+    <tr>
+      <th>stencil</th>
+      <td>21.000000</td>
+      <td>25.625000</td>
+    </tr>
+    <tr>
+      <th>sticker</th>
+      <td>10.466063</td>
+      <td>9.990950</td>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <td>40.646361</td>
+      <td>29.544971</td>
+    </tr>
+    <tr>
+      <th>throwUp</th>
+      <td>205.346429</td>
+      <td>108.450000</td>
+    </tr>
+    <tr>
+      <th>wildstyle</th>
+      <td>245.826087</td>
+      <td>136.347826</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="agg-aggregate">
+<h3><code class="docutils literal notranslate"><span class="pre">.agg()</span></code> <code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code><a class="headerlink" href="#agg-aggregate" title="Link to this heading">#</a></h3>
+<p>You can do generate quite sophisticated summary tables using the Pandas’ methods <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.agg.html"><code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.aggregate.html"><code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the count, min, mean, std, max width for each type</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>min</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>blockbuster</th>
+      <td>17</td>
+      <td>2</td>
+      <td>232.705882</td>
+      <td>215.012431</td>
+      <td>710</td>
+    </tr>
+    <tr>
+      <th>edging</th>
+      <td>15</td>
+      <td>10</td>
+      <td>63.200000</td>
+      <td>34.090635</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>hollow</th>
+      <td>162</td>
+      <td>4</td>
+      <td>226.006173</td>
+      <td>349.300410</td>
+      <td>3003</td>
+    </tr>
+    <tr>
+      <th>other</th>
+      <td>106</td>
+      <td>2</td>
+      <td>58.915094</td>
+      <td>117.862480</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>pasteUp</th>
+      <td>13</td>
+      <td>1</td>
+      <td>22.461538</td>
+      <td>19.598535</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>piece</th>
+      <td>121</td>
+      <td>1</td>
+      <td>200.214876</td>
+      <td>239.848223</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>stencil</th>
+      <td>8</td>
+      <td>5</td>
+      <td>21.000000</td>
+      <td>10.042766</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>sticker</th>
+      <td>442</td>
+      <td>1</td>
+      <td>10.466063</td>
+      <td>16.350331</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <td>2446</td>
+      <td>0</td>
+      <td>40.646361</td>
+      <td>74.071764</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>throwUp</th>
+      <td>280</td>
+      <td>1</td>
+      <td>205.346429</td>
+      <td>186.281759</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>wildstyle</th>
+      <td>23</td>
+      <td>1</td>
+      <td>245.826087</td>
+      <td>221.295289</td>
+      <td>670</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use a dictionary to define operations for the type and width columns min, mean, std, max width</span>
+<span class="n">operations</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;width&#39;</span><span class="p">:[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># execute operations</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)[[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">operations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>type</th>
+      <th colspan="3" halign="left">width</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>min</th>
+      <th>mean</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>blockbuster</th>
+      <td>17</td>
+      <td>2</td>
+      <td>232.705882</td>
+      <td>710</td>
+    </tr>
+    <tr>
+      <th>edging</th>
+      <td>15</td>
+      <td>10</td>
+      <td>63.200000</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>hollow</th>
+      <td>162</td>
+      <td>4</td>
+      <td>226.006173</td>
+      <td>3003</td>
+    </tr>
+    <tr>
+      <th>other</th>
+      <td>106</td>
+      <td>2</td>
+      <td>58.915094</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>pasteUp</th>
+      <td>13</td>
+      <td>1</td>
+      <td>22.461538</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>piece</th>
+      <td>121</td>
+      <td>1</td>
+      <td>200.214876</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>stencil</th>
+      <td>8</td>
+      <td>5</td>
+      <td>21.000000</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>sticker</th>
+      <td>442</td>
+      <td>1</td>
+      <td>10.466063</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <td>2446</td>
+      <td>0</td>
+      <td>40.646361</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>throwUp</th>
+      <td>280</td>
+      <td>1</td>
+      <td>205.346429</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>wildstyle</th>
+      <td>23</td>
+      <td>1</td>
+      <td>245.826087</td>
+      <td>670</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">#</a></h2>
+<p>Use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.filter.html"><code class="docutils literal notranslate"><span class="pre">.filter()</span></code></a> to select data based on <strong>group</strong> properties.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a function that checks if the number of entries for each type is greater than 10</span>
+<span class="k">def</span> <span class="nf">greater10</span><span class="p">(</span><span class="n">grp</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">grp</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># apply above function</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)[[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">greater10</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>piece</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>piece</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tag</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hollow</td>
+      <td>365</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tag</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3628</th>
+      <td>piece</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>3629</th>
+      <td>piece</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>3630</th>
+      <td>hollow</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>3631</th>
+      <td>tag</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>3632</th>
+      <td>tag</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>3625 rows × 2 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="additional-references">
+<h2>Additional References<a class="headerlink" href="#additional-references" title="Link to this heading">#</a></h2>
+<p>Additional help with <a class="reference external" href="https://realpython.com/pandas-groupby/"><code class="docutils literal notranslate"><span class="pre">.groupby</span></code></a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="joining.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Joins</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping">Grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-groupby-object">Exploring Groupby() object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-a-group">Retrieving a Group</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-with-mutliple-columns">Grouping with Mutliple Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-summaries">Simple Summaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agg-aggregate"><code class="docutils literal notranslate"><span class="pre">.agg()</span></code> <code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-references">Additional References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcos Llobera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

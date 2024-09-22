@@ -1,0 +1,1635 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Methods &#8212; Graffiti Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/pandas/operations';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Functions" href="functions.html" />
+    <link rel="prev" title="Accessing Data" href="accessing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GraffitiProject.png" class="logo__image only-light" alt="Graffiti Project - Home"/>
+    <script>document.write(`<img src="../../_static/GraffitiProject.png" class="logo__image only-dark" alt="Graffiti Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Graffiti Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Collecting Graffiti Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../collecting/app_project.html">Project Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collecting/collecting.html">Collecting Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preliminaries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/notebook_basics.html">Notebook Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/file_structure_basics.html">File structure basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/markdown.html">Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/list.html">List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/dictionary.html">Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/flow.html">Comparisons and Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">Modules and Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/documentation.html">Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing (Pandas)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Pandas Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning.html">Reading and Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing.html">Accessing Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grouping.html">Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joining.html">Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transforming.html">Transforming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaining.html">Chaining</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/pandas_plot.html">Pandas Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/seaborn.html">Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_i.html">GeoSpatial I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/geospatial_ii.html">GeoSpatial II</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/simple_stats.html">Simple Statistics</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workbooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case1.html">Case 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workbook/case2.html">Case 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnb/pandas/operations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/pandas/operations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-data">Display Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-functions">General Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cut-and-qcut"><code class="docutils literal notranslate"><span class="pre">cut()</span></code> and <code class="docutils literal notranslate"><span class="pre">qcut()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-extensions">Using Extensions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h1>
+<p>Let’s read all the information before we can start,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="read-csv-files">
+<h2>Read csv files<a class="headerlink" href="#read-csv-files" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># creating a relative path to the data folder </span>
+<span class="n">pth</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read canvas csv file into a dataframe </span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span> <span class="o">/</span> <span class="s1">&#39;canvas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read graffito</span>
+<span class="n">graffiti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pth</span><span class="o">/</span><span class="s1">&#39;graffiti.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="display-data">
+<h2>Display Data<a class="headerlink" href="#display-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first two rows</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created_at</th>
+      <th>uploaded_at</th>
+      <th>title</th>
+      <th>at_canvas</th>
+      <th>coords</th>
+      <th>date_entry_canvas</th>
+      <th>property_type</th>
+      <th>property_use</th>
+      <th>surveillance_status</th>
+      <th>surveillance</th>
+      <th>canvas_location</th>
+      <th>canvas_nature</th>
+      <th>surface_material</th>
+      <th>graffiti_removal</th>
+      <th>viewing_potential</th>
+      <th>accessibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2023-11-27 13:35:31-08:00</td>
+      <td>2023-11-27 13:40:43-08:00</td>
+      <td>11/27/2023 Wall</td>
+      <td>Y</td>
+      <td>{'latitude': 47.658577, 'longitude': -122.3176...</td>
+      <td>11/27/2023</td>
+      <td>comercial</td>
+      <td>abandoned</td>
+      <td>N</td>
+      <td>[]</td>
+      <td>street</td>
+      <td>wall</td>
+      <td>['concrete']</td>
+      <td>N</td>
+      <td>medium</td>
+      <td>['street_Level']</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2023-11-27 13:34:42-08:00</td>
+      <td>2023-11-27 13:40:40-08:00</td>
+      <td>11/27/2023 Wall</td>
+      <td>Y</td>
+      <td>{'latitude': 47.658577, 'longitude': -122.3176...</td>
+      <td>11/27/2023</td>
+      <td>comercial</td>
+      <td>abandoned</td>
+      <td>N</td>
+      <td>[]</td>
+      <td>street</td>
+      <td>wall</td>
+      <td>['concrete']</td>
+      <td>N</td>
+      <td>medium</td>
+      <td>['street_Level']</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first three rows</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>canvas_id</th>
+      <th>created_at</th>
+      <th>uploaded_at</th>
+      <th>title</th>
+      <th>num</th>
+      <th>date_recorded</th>
+      <th>width</th>
+      <th>height</th>
+      <th>type</th>
+      <th>technique</th>
+      <th>marker_type</th>
+      <th>nip_type</th>
+      <th>other</th>
+      <th>num_colors</th>
+      <th>colors</th>
+      <th>nature_graffiti</th>
+      <th>transcribable</th>
+      <th>message</th>
+      <th>transcription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>2023-11-27 13:40:11-08:00</td>
+      <td>2023-11-27 13:40:35-08:00</td>
+      <td>11/27/2023 “Roja”</td>
+      <td>1</td>
+      <td>11/27/2023</td>
+      <td>91</td>
+      <td>35</td>
+      <td>piece</td>
+      <td>spray</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>['black', 'white']</td>
+      <td>['Image', 'Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>“Roja”</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>3</td>
+      <td>2023-11-27 13:39:13-08:00</td>
+      <td>2023-11-27 13:40:33-08:00</td>
+      <td>11/27/2023 Triangle/prism</td>
+      <td>1</td>
+      <td>11/27/2023</td>
+      <td>91</td>
+      <td>60</td>
+      <td>piece</td>
+      <td>spray</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3-5</td>
+      <td>['black', 'white', 'red', 'gold']</td>
+      <td>['Image']</td>
+      <td>Y</td>
+      <td>other</td>
+      <td>Triangle/prism</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id1">
+<h2>Methods<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Pandas has many methods that can be applied to an entire DataFrames or a single Series in order to query and generate new information.</p>
+<p>To illustrate a few of these operations, create a new column representing the area of each graffito recorded.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Methods</p></th>
+<th class="head text-center"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code class="docutils literal notranslate"><span class="pre">.describe</span></code></a></p></td>
+<td class="text-center"><p>Provides a quick numerical summary</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.idxmax.html"><code class="docutils literal notranslate"><span class="pre">.idmax()</span></code></a></p></td>
+<td class="text-center"><p>Return index of first occurrence of the maximum value</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.idxmin.html"><code class="docutils literal notranslate"><span class="pre">.idmin()</span></code></a></p></td>
+<td class="text-center"><p>Return index of first occurrence of the minimum value</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html"><code class="docutils literal notranslate"><span class="pre">.count()</span></code></a></p></td>
+<td class="text-center"><p>Number of observations</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sum.html"><code class="docutils literal notranslate"><span class="pre">.sum()</span></code></a></p></td>
+<td class="text-center"><p>Sum of all values</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html"><code class="docutils literal notranslate"><span class="pre">.min()</span></code></a></p></td>
+<td class="text-center"><p>Minimum value</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html"><code class="docutils literal notranslate"><span class="pre">.mean()</span></code></a></p></td>
+<td class="text-center"><p>Mean of values</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.median.html"><code class="docutils literal notranslate"><span class="pre">.median()</span></code></a></p></td>
+<td class="text-center"><p>Median of values</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mode.html"><code class="docutils literal notranslate"><span class="pre">.mode()</span></code></a></p></td>
+<td class="text-center"><p>Mode of values</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html"><code class="docutils literal notranslate"><span class="pre">.max()</span></code></a></p></td>
+<td class="text-center"><p>Maximum value</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html"><code class="docutils literal notranslate"><span class="pre">.std()</span></code></a></p></td>
+<td class="text-center"><p>Standard Deviation of values</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.quantile.html"><code class="docutils literal notranslate"><span class="pre">.quantile()</span></code></a></p></td>
+<td class="text-center"><p>Calculates a given quantile of the values</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html"><code class="docutils literal notranslate"><span class="pre">.sample()</span></code></a></p></td>
+<td class="text-center"><p>Returns a sample (with or without replacement of the DataFrame</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:10,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">height</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># area describe</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count       3,633.00
+mean        8,186.00
+std        58,371.47
+min             0.00
+25%            80.00
+50%           420.00
+75%         2,700.00
+max     3,000,000.00
+Name: area, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># which graffiti have the largest and smallest areas?</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2395, 1998)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># which rows have the largest width and height?</span>
+<span class="n">graffiti</span><span class="p">[[</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="s1">&#39;height&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>width     2748
+height    2395
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>There might be various entries with the same minimum and maximum values.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(3633)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(29739738)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(8186.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(420.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    50
+Name: area, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(3000000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(58371.47231150483)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05        18.00
+0.10        30.00
+0.25        80.00
+0.50       420.00
+0.75     2,700.00
+0.90    15,000.00
+0.95    36,738.40
+Name: area, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many graffiti entries?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">graffiti</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3633
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a sample with a sampling fraction of 0.1 or 10%</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span> <span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>363
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a sample of size 100</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Speficying the sample size</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a sample with a size 100 with replacement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># With replacement</span>
+<span class="n">graffiti</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>canvas_id</th>
+      <th>created_at</th>
+      <th>uploaded_at</th>
+      <th>title</th>
+      <th>num</th>
+      <th>date_recorded</th>
+      <th>width</th>
+      <th>height</th>
+      <th>type</th>
+      <th>...</th>
+      <th>marker_type</th>
+      <th>nip_type</th>
+      <th>other</th>
+      <th>num_colors</th>
+      <th>colors</th>
+      <th>nature_graffiti</th>
+      <th>transcribable</th>
+      <th>message</th>
+      <th>transcription</th>
+      <th>area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1259</th>
+      <td>1259</td>
+      <td>296</td>
+      <td>2023-11-10 08:05:30.055000-08:00</td>
+      <td>2023-11-12 16:33:24-08:00</td>
+      <td>11/10/2023</td>
+      <td>1</td>
+      <td>11/10/2023</td>
+      <td>130</td>
+      <td>56</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['black']</td>
+      <td>['Text']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7280</td>
+    </tr>
+    <tr>
+      <th>1405</th>
+      <td>1405</td>
+      <td>357</td>
+      <td>2023-11-08 13:45:05.923000-08:00</td>
+      <td>2023-11-08 13:48:12-08:00</td>
+      <td>11/08/2023</td>
+      <td>1</td>
+      <td>11/08/2023</td>
+      <td>4</td>
+      <td>4</td>
+      <td>sticker</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sticker</td>
+      <td>1</td>
+      <td>['green']</td>
+      <td>['Image']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1521</th>
+      <td>1521</td>
+      <td>413</td>
+      <td>2023-11-01 15:29:16.013000-07:00</td>
+      <td>2023-11-01 15:46:26-07:00</td>
+      <td>11/01/2023</td>
+      <td>1</td>
+      <td>11/01/2023</td>
+      <td>56</td>
+      <td>9</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['white']</td>
+      <td>['Text']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>504</td>
+    </tr>
+    <tr>
+      <th>804</th>
+      <td>804</td>
+      <td>455</td>
+      <td>2023-11-13 08:33:24.226000-08:00</td>
+      <td>2023-11-13 08:54:24-08:00</td>
+      <td>11/11/2023</td>
+      <td>1</td>
+      <td>11/11/2023</td>
+      <td>20</td>
+      <td>30</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['black']</td>
+      <td>['Text']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <th>949</th>
+      <td>949</td>
+      <td>180</td>
+      <td>2023-11-12 15:56:26.651000-08:00</td>
+      <td>2023-11-12 16:00:07-08:00</td>
+      <td>11/12/2023</td>
+      <td>1</td>
+      <td>11/12/2023</td>
+      <td>1</td>
+      <td>1</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['white']</td>
+      <td>['Text']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1154</th>
+      <td>1154</td>
+      <td>266</td>
+      <td>2023-11-10 11:03:34.711000-08:00</td>
+      <td>2023-11-10 11:05:57-08:00</td>
+      <td>11/10/2023 Ok!</td>
+      <td>1</td>
+      <td>11/10/2023</td>
+      <td>8</td>
+      <td>5</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>painstick/chalk</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['white']</td>
+      <td>['Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>Ok!</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>3567</th>
+      <td>3567</td>
+      <td>1385</td>
+      <td>2023-10-05 17:26:19.326000-07:00</td>
+      <td>2023-10-05 17:26:32-07:00</td>
+      <td>10/05/2023 ITS ALWAYS 11:11 SOMEWHERE</td>
+      <td>1</td>
+      <td>10/05/2023</td>
+      <td>6</td>
+      <td>10</td>
+      <td>sticker</td>
+      <td>...</td>
+      <td>unknown</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['black']</td>
+      <td>['Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>ITS ALWAYS 11:11 SOMEWHERE</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>1110</th>
+      <td>1110</td>
+      <td>247</td>
+      <td>2023-11-10 11:40:16-08:00</td>
+      <td>2023-11-10 12:43:06-08:00</td>
+      <td>11/10/2023 Fpedi*</td>
+      <td>1</td>
+      <td>11/10/2023</td>
+      <td>10</td>
+      <td>5</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>painstick/chalk</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['white']</td>
+      <td>['Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>Fpedi*</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>2272</th>
+      <td>2272</td>
+      <td>583</td>
+      <td>2023-10-28 10:37:57-07:00</td>
+      <td>2023-10-28 11:06:46-07:00</td>
+      <td>10/28/2023 BFWK</td>
+      <td>1</td>
+      <td>10/28/2023</td>
+      <td>5</td>
+      <td>12</td>
+      <td>tag</td>
+      <td>...</td>
+      <td>marker</td>
+      <td>unknown</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>['black']</td>
+      <td>['Text']</td>
+      <td>Y</td>
+      <td>writter</td>
+      <td>BFWK</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>2745</th>
+      <td>2745</td>
+      <td>747</td>
+      <td>2023-10-23 11:52:02.273000-07:00</td>
+      <td>2023-10-23 11:58:20-07:00</td>
+      <td>10/23/2023</td>
+      <td>1</td>
+      <td>10/23/2023</td>
+      <td>500</td>
+      <td>200</td>
+      <td>throwUp</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>['black', 'white']</td>
+      <td>['Text']</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>100000</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 21 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="general-functions">
+<h2>General Functions<a class="headerlink" href="#general-functions" title="Link to this heading">#</a></h2>
+<p>Pandas has what are called <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/general_functions.html">General Functions</a> which offer some powerful operations. We shall be seeing more of these later but for now, let’s look at two that are very handy.</p>
+<section id="cut-and-qcut">
+<h3><code class="docutils literal notranslate"><span class="pre">cut()</span></code> and <code class="docutils literal notranslate"><span class="pre">qcut()</span></code><a class="headerlink" href="#cut-and-qcut" title="Link to this heading">#</a></h3>
+<p>Both of these methods are very useful when trying to create categories out of a continous variable. The first method, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html"><code class="docutils literal notranslate"><span class="pre">cut()</span></code></a> breaks a continuous variable into various bins or chunks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new series where each observation is in a bin</span>
+<span class="n">graf_area</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">graf_area</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    (-3000.0, 1000000.0]
+1    (-3000.0, 1000000.0]
+2    (-3000.0, 1000000.0]
+3    (-3000.0, 1000000.0]
+4    (-3000.0, 1000000.0]
+Name: area, dtype: category
+Categories (3, interval[float64, right]): [(-3000.0, 1000000.0] &lt; (1000000.0, 2000000.0] &lt; (2000000.0, 3000000.0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># label the categories</span>
+<span class="n">graf_area</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;med&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">])</span>
+<span class="n">graf_area</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    small
+1    small
+2    small
+3    small
+4    small
+Name: area, dtype: category
+Categories (3, object): [&#39;small&#39; &lt; &#39;med&#39; &lt; &#39;large&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html"><code class="docutils literal notranslate"><span class="pre">qcut()</span></code></a> is similar to <code class="docutils literal notranslate"><span class="pre">cut()</span></code> but instead you use quantiles to segmented the continuous variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use quartiles to create categories</span>
+<span class="n">graf_area</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">graf_area</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    (2700.0, 3000000.0]
+1    (2700.0, 3000000.0]
+2        (420.0, 2700.0]
+3    (2700.0, 3000000.0]
+4        (420.0, 2700.0]
+Name: area, dtype: category
+Categories (4, interval[float64, right]): [(-0.001, 80.0] &lt; (80.0, 420.0] &lt; (420.0, 2700.0] &lt; (2700.0, 3000000.0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify percentiles.</span>
+<span class="n">graf_area</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tiny&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;huge&#39;</span><span class="p">],</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graf_area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         large
+1         large
+2       average
+3          huge
+4       average
+         ...   
+3628      large
+3629      large
+3630      large
+3631    average
+3632    average
+Name: area, Length: 3633, dtype: category
+Categories (5, object): [&#39;tiny&#39; &lt; &#39;small&#39; &lt; &#39;average&#39; &lt; &#39;large&#39; &lt; &#39;huge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show cut off values</span>
+<span class="n">bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000e+00, 1.80000e+01, 8.00000e+01, 2.70000e+03, 3.67384e+04,
+       3.00000e+06])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graffiti</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area
+50      74
+300     72
+200     67
+100     67
+40      60
+        ..
+1476     1
+1276     1
+665      1
+5250     1
+2760     1
+Name: count, Length: 853, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-extensions">
+<h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Link to this heading">#</a></h2>
+<p>Whenever we have a field that has either text (=<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html#behavior-differences"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, a category (=<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html#working-with-categories"><code class="docutils literal notranslate"><span class="pre">cat</span></code></a>, or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#dt-accessor"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> allows us to access specialized operations using a <strong>.dot</strong> notation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what are the categories?</span>
+<span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;tiny&#39;, &#39;small&#39;, &#39;average&#39;, &#39;large&#39;, &#39;huge&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what codes?</span>
+<span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       3
+1       3
+2       2
+3       4
+4       2
+       ..
+3628    3
+3629    3
+3630    3
+3631    2
+3632    2
+Length: 3633, dtype: int8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are they ordered?</span>
+<span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">ordered</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert to string and capitalize</span>
+<span class="n">new_categories</span> <span class="o">=</span> <span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">new_categories</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Tiny&#39;, &#39;Small&#39;, &#39;Average&#39;, &#39;Large&#39;, &#39;Huge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change categories</span>
+<span class="n">graf_area</span> <span class="o">=</span> <span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">set_categories</span><span class="p">(</span><span class="n">new_categories</span><span class="p">,</span> <span class="n">rename</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show categories</span>
+<span class="n">graf_area</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Tiny&#39;, &#39;Small&#39;, &#39;Average&#39;, &#39;Large&#39;, &#39;Huge&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="accessing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files">Read csv files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-data">Display Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-functions">General Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cut-and-qcut"><code class="docutils literal notranslate"><span class="pre">cut()</span></code> and <code class="docutils literal notranslate"><span class="pre">qcut()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-extensions">Using Extensions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcos Llobera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
