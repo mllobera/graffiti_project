@@ -3,10 +3,9 @@
 
 *Course designed and taught by [Marcos Llobera](https://www.digarlab.uw.edu/llobera) (with contributions by [Alec Iacobucci](https://www.digarlab.uw.edu/copy-of-profile-template))*
 
-```{image} GraffitiProject.png
-:width: 60%
-:align: center
-```
+<center>
+<img src="./GraffitiProject.png" width="200" height="100">
+</center>
 
 
 This book is meant to be a companion to the UW Archaeology course (ARCHY 5/235) *Exploring Graffiti*. You should consider this a 'live' book, meaning that its contents are likely to constantly evolve and change.
@@ -21,10 +20,6 @@ This course is not a Computer Science or programming course. **It does not expec
 
 This book provides some background on the Graffiti project, guidelines on how data should be collected and an framework for the information covered in the class. Much of the material included in this book is covered in more detail in class while other is included as background information. 
 
-```{caution}
-While hopefully useful, do not consider this book to be a substitute for what we will be covered in the classroom.
-```
- 
 ### Python 
 Throughout this course we will be learning how to use Python to process and visualize Graffiti data . Python is a computer language all on its own but it is also considered one of the ***premier*** computer languages used to conduct data science (another one is *R*). Python as been adopted by the scientific community at large and it is constantly growing. You can use Python for data science, as we will in this course, but you can also use it many other scientific fields.
 
