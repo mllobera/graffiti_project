@@ -42,6 +42,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: graffiti_project.ico
+  extra_footer: 'License'
 
 ##################################################################
 # Parse and render settings
