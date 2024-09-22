@@ -4,7 +4,7 @@
 *Course designed and taught by [Marcos Llobera](https://www.digarlab.uw.edu/llobera) (with contributions by [Alec Iacobucci](https://www.digarlab.uw.edu/copy-of-profile-template))*
 
 <center>
-<img src="./GraffitiProject.png" width="200" height="100">
+    <img src="./GraffitiProject.png" width="30%" >
 </center>
 
 
