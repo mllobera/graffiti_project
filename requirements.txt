@@ -1,0 +1,7 @@
+jupyter-book
+seaborn
+pandas
+geopandas
+folium
+scipy
+openyxl

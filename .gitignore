@@ -1,0 +1,11 @@
+# ignore the following specific directories
+/.vscode
+
+# ignore this file
+*.code-workspace
+
+# ignore the following subdirectories regardless where they appear
+**/__pycache__
+
+# ignore the following subdirectories regardless where they appear
+**/_build

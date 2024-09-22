@@ -1,0 +1,52 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: introduction
+parts:
+  - caption: Collecting Graffiti Data
+    chapters:
+    - file: nb/collecting/app_project
+    - file: nb/collecting/collecting
+  - caption: Preliminaries
+    chapters:
+    - file : nb/preliminary/notebook_basics
+    - file : nb/preliminary/file_structure_basics
+    - file : nb/preliminary/markdown
+  - caption: Python Basics
+    chapters:
+    - file : nb/python/list
+    - file : nb/python/dictionary
+    - file : nb/python/flow
+    - file : nb/python/loops
+    - file : nb/python/functions
+    - file : nb/python/modules
+    - file : nb/python/documentation   
+  - caption: Data Processing (Pandas)
+    chapters:
+    - file : nb/pandas/introduction
+    - file : nb/pandas/cleaning
+    - file : nb/pandas/accessing
+    - file : nb/pandas/operations
+    - file : nb/pandas/functions
+    - file : nb/pandas/grouping
+    - file : nb/pandas/joining
+    - file : nb/pandas/transforming
+    - file : nb/pandas/chaining
+  - caption: Visualization
+    chapters:
+    - file : nb/visualization/pandas_plot
+    - file : nb/visualization/seaborn
+    - file : nb/visualization/geospatial_i
+    - file : nb/visualization/geospatial_ii
+  - caption: Statistics
+    chapters:
+    - file : nb/statistics/simple_stats
+  - caption: Extra
+    chapters:
+    - file : nb/extra/numpy
+    - file : nb/extra/matplotlib
+  - caption: Workbooks
+    chapters:
+    - file : nb/workbook/case1
+    - file : nb/workbook/case2
