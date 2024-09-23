@@ -11,7 +11,7 @@ This course is part of a campus wide initiative aimed at introducing *basic* com
 
 **Archaeology concerns itself with understanding the relationships between people and the material world that surrounds them.** In this particular case, we are interested in using data science tools to learn something about the world of graffiti that surrounds you. 
 
-This course is not a Computer Science or programming course. **It does not expect you will come with any programming skills**. However, it is hoped that through it you will learn how to write basic code aimed at exploring graffiti data that you and your peers will be collecting throughout the course. 
+This course is not a Computer Science or programming course. **While It is not expected you will come with any programming skills**. It is expected that you are interested in learning how to write basic code aimed at exploring graffiti data that you and your peers will be collecting throughout the course. 
 
 This book provides some background on the Graffiti project, guidelines on how data should be collected and an framework for the information covered in the class. Much of the material included in this book is covered in more detail in class while other is included as background information. 
 
