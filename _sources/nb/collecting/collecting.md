@@ -111,7 +111,7 @@ Bad photos of graffiti are practically useless. To avoid *bad* photos, remember 
 
 Here are some 'not so good' examples,
 
-### No so 'useful' canvas pics
+### Not so 'useful' canvas pics
 
 The angle here of the photo is off. The direction of the photo was not perpendicular to the wall working as a canvas.
 ```{image} ../../images/collecting/graffiti-project-7.png
@@ -136,7 +136,7 @@ Next, the direction of the photo was not perpendicular to the dumpster working a
 :width: 500px
 ```
 
-### No so 'useful' graffiti pics
+### Not so 'useful' graffiti pics
 
 Make sure the entire canvas or graffito is in your frame! You do not want your image cut off by the edges of your photo! Make sure the photo is in focus!
 
