@@ -123,7 +123,8 @@ Another example of wrong angle,
 :align: center
 :width: 500px
 ```
-Photo taken way to far for away.
+
+Photo taken too far away.
 
 ```{image} ../../images/collecting/graffiti-project-12.png
 :align: center
