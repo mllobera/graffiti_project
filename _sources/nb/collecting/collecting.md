@@ -1,5 +1,5 @@
 # Collecting Data
-*by Alec Iacobucci*
+*by Alec Iacobucci*   
 \
 Part of the *Epicollect5* form that you will be using to collect data will ask you to take photos of the instances of graffiti and the canvas, or backdrop, and the general surroundings in which it is found. It is important that these photos are taken in a particular way, as this will maximize their utility in analyzing the data within the project.
 
@@ -160,3 +160,13 @@ Out of focus.
 :align: center
 :width: 500px
 ```
+
+## Video Guide
+
+If you are still uncertain about how to record please check, 
+```{image} ../../images/indy_graf.jpg
+:width: 30%
+```
+### [Raiders of the Lost Graffiti...](https://www.youtube.com/watch?v=2W4vyWk796w)
+
+...starring **Alec Iacobucci** who will narrate for you each step of the process.
