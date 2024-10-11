@@ -24,7 +24,12 @@ Throughout this course we will be learning how to use Python to process and visu
 
 While this is not a Python programming course *per se*, you will be learning a lot about Python. By the end of the course, you will be familiar with many basic data science techniques regardless of your ultimate field of interest.
 
+### Suggested Citation
+> Llobera, M. and Iacobucci, A. 2024. *Graffiti Project*: Combining Urban Landscape Archaeology and Data Science. Version 1.0 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13917117.svg)](https://doi.org/10.5281/zenodo.13917117)
 
+### Acknowledgements
+This online books was possible thanks to the developers of [Jupyter Books](https://jupyterbook.org/)
 
 
 
